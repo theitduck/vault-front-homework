@@ -1,19 +1,37 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import TextInput from "./components/TextInput";
 
 const API = "http://localhost:5001";
 
-type Notif = {
+type TransactionProps = {
+  id: number;
+  amount: number;
+  unit: string;
+  from: string;
+  to: string;
+};
+
+type AccountCreatedProps = {
+  id: number;
+  name: string;
+  currency: string;
+};
+
+type NotificationDataProps = {
+  type: 'TRANSACTION_RECEIVED' | 'ACCOUNT_CREATED' | 'TRANSACTION_SENT';
+  data: TransactionProps | AccountCreatedProps;
+};
+
+type NotificationProps = {
   id: string;
   type: string;
-  // FIXME we should *probably* not have this `any`
-  data: any;
+  data: NotificationDataProps;
 };
 
 const App = () => {
   const [searchText, setSearchText] = useState("");
   const [isLoading, setLoading] = useState(false);
-  const [results, setResults] = useState<null | Notif[]>(null);
+  const [results, setResults] = useState<null | NotificationProps[]>(null);
 
   useEffect(() => {
     const effect = async () => {
@@ -40,7 +58,7 @@ const App = () => {
         <div>
           {results.map((r) => (
             // TODO we must finalize this integration!! not very pretty like this
-            <div className="border border-dashed">{JSON.stringify(r)}</div>
+            <div key={r.id.toString()} className="border border-dashed">{JSON.stringify(r)}</div>
           ))}
         </div>
       ) : null}

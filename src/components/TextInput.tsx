@@ -1,4 +1,4 @@
-import { ChangeEventHandler, DetailedHTMLProps, InputHTMLAttributes } from "react";
+import React, { ChangeEventHandler, DetailedHTMLProps, InputHTMLAttributes } from "react";
 
 type Props = Omit<
   DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
