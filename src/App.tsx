@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import TextInput from "./components/TextInput";
 
-const API = "http://localhost:5000";
+const API = "http://localhost:5001";
 
 type Notif = {
   id: string;
@@ -17,11 +17,16 @@ const App = () => {
 
   useEffect(() => {
     const effect = async () => {
-      // FIXME there is something wrong with this loading state... to be investigated :D
-      setLoading(true);
-      const res = await fetch(`${API}/search?q=${searchText}`);
-      const data = await res.json();
-      setResults(data);
+      try {
+        setLoading(true);
+        const res = await fetch(`${API}/search?q=${searchText}`);
+        const data = await res.json();
+        setResults(data);
+        setLoading(false);
+      } catch(e) {
+        setLoading(false);
+        throw e;
+      }
     };
     effect();
   }, [searchText, setLoading, setResults]);
