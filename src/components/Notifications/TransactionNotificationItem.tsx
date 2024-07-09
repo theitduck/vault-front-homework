@@ -7,8 +7,7 @@ const TransactionNotificationItem = ({ data, type }: NotificationItemProps) => {
     return (
       <div className="flex py-3 px-2 w-full">
         <div className="flex-none rounded-full w-4 h-4 bg-green-400 self-center shadow"></div>
-        <div className="flex-none pl-2">Received</div>
-        <div className="flex-none pl-2">{amount} {unit}</div>
+        <div className="flex-none pl-2">Received {amount} {unit}</div>
         <div className="grow pl-2 truncate max-w-fit">to {to}</div>
       </div>
     )
@@ -18,8 +17,7 @@ const TransactionNotificationItem = ({ data, type }: NotificationItemProps) => {
     return (
       <div className="flex py-3 px-2 w-full">
         <div className="flex-none rounded-full w-4 h-4 bg-red-400 self-center shadow"></div>
-        <div className="flex-none pl-2">Sent</div>
-        <div className="flex-none pl-2">{amount} {unit}</div>
+        <div className="flex-none pl-2">Sent {amount} {unit}</div>
         <div className="grow pl-2 truncate max-w-fit">from {from}</div>
       </div>
     )

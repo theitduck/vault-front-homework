@@ -31,7 +31,7 @@ const App = () => {
   const hasResults = results && results.length > 0;
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto sm:px-4 md:px-16">
       <div className="pb-4">
         <TextInput value={searchText} onChange={setSearchText} placeholder="Type to filter events" />
       </div>
