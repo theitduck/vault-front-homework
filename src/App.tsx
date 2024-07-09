@@ -1,37 +1,14 @@
 import React, { useEffect, useState } from "react";
 import TextInput from "./components/TextInput";
+import NotificationList from "./components/Notifications/NotificationList";
+import { NotificationItemProps } from "./types";
 
 const API = "http://localhost:5001";
-
-type TransactionProps = {
-  id: number;
-  amount: number;
-  unit: string;
-  from: string;
-  to: string;
-};
-
-type AccountCreatedProps = {
-  id: number;
-  name: string;
-  currency: string;
-};
-
-type NotificationDataProps = {
-  type: 'TRANSACTION_RECEIVED' | 'ACCOUNT_CREATED' | 'TRANSACTION_SENT';
-  data: TransactionProps | AccountCreatedProps;
-};
-
-type NotificationProps = {
-  id: string;
-  type: string;
-  data: NotificationDataProps;
-};
 
 const App = () => {
   const [searchText, setSearchText] = useState("");
   const [isLoading, setLoading] = useState(false);
-  const [results, setResults] = useState<null | NotificationProps[]>(null);
+  const [results, setResults] = useState<null | NotificationItemProps[]>(null);
 
   useEffect(() => {
     const effect = async () => {
@@ -49,19 +26,15 @@ const App = () => {
     effect();
   }, [searchText, setLoading, setResults]);
 
+  const hasResults = results && results.length > 0;
+
   return (
-    <div>
-      <TextInput value={searchText} onChange={setSearchText} placeholder="Type to filter events" />
-      {isLoading ? (
-        <div>{"Loading..."}</div>
-      ) : results ? (
-        <div>
-          {results.map((r) => (
-            // TODO we must finalize this integration!! not very pretty like this
-            <div key={r.id.toString()} className="border border-dashed">{JSON.stringify(r)}</div>
-          ))}
-        </div>
-      ) : null}
+    <div className="container mx-auto">
+      <div className="pb-4">
+        <TextInput value={searchText} onChange={setSearchText} placeholder="Type to filter events" />
+      </div>
+      {isLoading && <div>{"Loading..."}</div>}
+      {!isLoading && hasResults && <NotificationList notifications={results} />}
     </div>
   );
 };
