@@ -18,7 +18,7 @@ export enum NotificationTypes {
   TRANSACTION_SENT = "TRANSACTION_SENT"
 }
 
-export type NotificationItemProps = {
+export type NotificationProps = {
   id: number;
   type: NotificationTypes;
   data: TransactionNotificationItemProps | AccountCreatedNotificationItemProps;

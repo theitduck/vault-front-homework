@@ -1,7 +1,7 @@
 import React from "react";
-import { NotificationItemProps, NotificationTypes, TransactionNotificationItemProps } from "../../types";
+import { NotificationProps, NotificationTypes, TransactionNotificationItemProps } from "../../types";
 
-const TransactionNotificationItem = ({ data, type }: NotificationItemProps) => {
+const NotificationItemTransaction = ({ data, type }: NotificationProps) => {
   const { amount, to, from, unit } = data as TransactionNotificationItemProps;
   if (type === NotificationTypes.TRANSACTION_RECEIVED) {
     return (
@@ -26,4 +26,4 @@ const TransactionNotificationItem = ({ data, type }: NotificationItemProps) => {
   return null;
 };
 
-export default TransactionNotificationItem;
+export default NotificationItemTransaction;

@@ -1,7 +1,7 @@
 import React from "react";
 import { AccountCreatedNotificationItemProps } from "../../types";
 
-const AccountCreatedNotificationItem = ({ data }: { data: AccountCreatedNotificationItemProps }) => {
+const NotificationItemAccountCreated = ({ data }: { data: AccountCreatedNotificationItemProps }) => {
   const { currency, name } = data;
   return (
     <div className="flex py-3 px-2 w-full">
@@ -14,4 +14,4 @@ const AccountCreatedNotificationItem = ({ data }: { data: AccountCreatedNotifica
   );
 };
 
-export default AccountCreatedNotificationItem;
+export default NotificationItemAccountCreated;

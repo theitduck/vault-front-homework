@@ -1,7 +1,6 @@
 import React from "react";
 
-const LoadingComponent = () => {
-  return (
+const NotificationListLoading = () => (
     <div className="text-center">
       <div role="status">
         <svg aria-hidden="true"
@@ -21,7 +20,6 @@ const LoadingComponent = () => {
       </div>
       <div className="py-4">Loading...</div>
     </div>
-  );
-};
+);
 
-export default LoadingComponent;
+export default NotificationListLoading;
