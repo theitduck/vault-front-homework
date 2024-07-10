@@ -53,9 +53,6 @@ pnpm dev
 ### Frontend custom scripts
 
 ```
-# prepare husky to enable pre-commit hooks
-pnpm prepare         # husky install
-
 # run the unit tests
 pnpm test            # jest --coverage
 
@@ -64,4 +61,7 @@ pnpm lint            # eslint .
 
 # format the code
 pnpm format          # prettier --write --ignore-unknown
+
+# run precommit command
+pnpm precommit
 ```
