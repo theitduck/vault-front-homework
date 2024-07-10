@@ -1,17 +1,19 @@
-import React from "react";
-import NotificationItem from "../notification-item/notification-item";
-import { NotificationProps } from "../../types";
+import React from 'react';
+import NotificationItem from '../notification-item/notification-item';
+import { NotificationProps } from '../../types';
 
 type NotificationListProps = {
-  notifications: NotificationProps[];
+	notifications: NotificationProps[];
 };
 
 const NotificationList = ({ notifications }: NotificationListProps) => {
-  return (
-    <>
-      {notifications.map((notification) => <NotificationItem key={notification.id.toString()} notification={notification} />)}
-    </>
-  );
+	return (
+		<>
+			{notifications.map((notification) => (
+				<NotificationItem key={notification.id.toString()} notification={notification} />
+			))}
+		</>
+	);
 };
 
 export default NotificationList;
