@@ -49,3 +49,19 @@ pnpm install
 # run the dev server
 pnpm dev
 ```
+
+### Frontend custom scripts
+
+```
+# prepare husky to enable pre-commit hooks
+pnpm prepare         # husky install
+
+# run the unit tests
+pnpm test            # jest --coverage
+
+# run the linter
+pnpm lint            # eslint .
+
+# format the code
+pnpm format          # prettier --write --ignore-unknown
+```
