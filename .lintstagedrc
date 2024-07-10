@@ -1,0 +1,11 @@
+{
+    "*.{js, jsx,ts,tsx}": [
+      "eslint ."
+    ],
+    "*.{json,js,ts,jsx,tsx,html}": [
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{spec,test}.{ts,tsx}": [
+      "jest --coverage"
+    ]
+}
